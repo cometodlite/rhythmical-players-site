@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<title>유월대학교 — Yuwol University</title>
+<meta name="description" content="유월대학교(Yuwol University) — 리드미컬 플레이어스 산하 대학교">
+<link rel="icon" href="/assets/favicon.ico" sizes="any">
+<link rel="icon" href="/assets/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+<script>document.documentElement.className += " js";</script>
+<style>
+  html { scroll-behavior: smooth; scroll-padding-top: 96px; }
+  :root {
+    --bg: #100D12; --ink: #F5F2FA; --muted: #C9C3D4; --dim: #8B8496;
+    --coral: #FF6B4A; --teal: #2DD4BF; --card: #17141B; --line: rgba(245,242,250,.1);
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font-family: 'Noto Sans KR', sans-serif; overflow-x: hidden; }
+  a { color: inherit; text-decoration: none; }
+  .serif { font-family: 'Space Grotesk', 'Noto Sans KR', sans-serif; }
+  .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 32px; }
+  .glow-a { position: absolute; top: -200px; right: -160px; width: 640px; height: 640px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,107,74,.22) 0%, rgba(255,107,74,0) 70%); pointer-events: none; }
+  .glow-b { position: absolute; top: 640px; left: -200px; width: 560px; height: 560px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(45,212,191,.14) 0%, rgba(45,212,191,0) 70%); pointer-events: none; }
+  .page { position: relative; overflow: hidden; }
+
+  /* utility bar */
+  .util { position: relative; border-bottom: 1px solid var(--line); color: var(--dim); font-size: 12.5px; }
+  .util .container { display: flex; justify-content: space-between; align-items: center; height: 38px; }
+  .util a { transition: color .3s ease; }
+  .util a:hover { color: var(--ink); }
+
+  /* header */
+  header.site { position: sticky; top: 0; z-index: 20; background: rgba(16,13,18,.82); backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line); }
+  header.site .container { display: flex; align-items: center; justify-content: space-between; height: 76px; }
+  .brand { display: flex; align-items: center; gap: 12px; }
+  .brand img { width: 40px; height: 40px; border-radius: 50%; }
+  .brand b { display: block; font-size: 20px; font-weight: 700; line-height: 1.15; }
+  .brand small { display: block; font-size: 11px; letter-spacing: .14em; color: var(--dim); text-transform: uppercase; }
+  nav.main { display: flex; gap: 36px; }
+  nav.main a { font-size: 15px; font-weight: 500; color: var(--muted); padding: 8px 0; position: relative; transition: color .3s ease; }
+  nav.main a::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 2px; background: var(--coral);
+    transform: scaleX(0); transform-origin: left; transition: transform .35s cubic-bezier(.22,1,.36,1); }
+  nav.main a:hover { color: var(--ink); }
+  nav.main a:hover::after { transform: scaleX(1); }
+  .menu-btn { display: none; background: none; border: 0; padding: 8px; cursor: pointer; }
+  .menu-btn span { display: block; width: 22px; height: 2px; background: var(--ink); margin: 5px 0; border-radius: 2px; }
+
+  /* hero */
+  .hero { position: relative; }
+  .hero .container { position: relative; padding-top: 128px; padding-bottom: 136px; text-align: center;
+    display: flex; flex-direction: column; align-items: center; gap: 24px; }
+  .pill { display: inline-flex; align-items: center; gap: 8px; padding: 7px 16px; border: 1px solid rgba(245,242,250,.18);
+    border-radius: 999px; font-size: 13px; color: var(--muted); font-weight: 500; }
+  .pill i { width: 7px; height: 7px; border-radius: 50%; background: var(--teal); }
+  .hero h1 { margin: 0; font-size: 72px; line-height: 1.15; font-weight: 900; }
+  .hero h1 em { font-style: normal; color: var(--coral); }
+  .hero h1 span { color: var(--teal); }
+  .hero p { margin: 0; max-width: 580px; font-size: 18px; line-height: 1.75; color: var(--muted); }
+  .hero .actions { display: flex; gap: 14px; margin-top: 8px; flex-wrap: wrap; justify-content: center; }
+  .btn { display: inline-block; padding: 15px 30px; font-size: 16px; font-weight: 700; border-radius: 999px;
+    transition: transform .3s cubic-bezier(.22,1,.36,1), box-shadow .3s ease, border-color .3s ease, color .3s ease; }
+  .btn-p { background: var(--coral); color: var(--bg); }
+  .btn-p:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(255,107,74,.35); }
+  .btn-g { border: 1px solid rgba(245,242,250,.22); color: var(--muted); font-weight: 600; }
+  .btn-g:hover { border-color: var(--ink); color: var(--ink); }
+
+  /* quick menu */
+  .quick-grid { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 16px; }
+  .quick-item { padding: 26px 24px; background: var(--card); border: 1px solid var(--line); border-radius: 20px;
+    display: flex; flex-direction: column; gap: 6px;
+    transition: border-color .3s cubic-bezier(.22,1,.36,1), transform .3s cubic-bezier(.22,1,.36,1); }
+  .quick-item:hover { border-color: rgba(255,107,74,.5); transform: translateY(-4px); }
+  .quick-item small { font-size: 12px; font-weight: 700; letter-spacing: .14em; color: var(--coral); }
+  .quick-item:nth-child(even) small { color: var(--teal); }
+  .quick-item b { font-size: 18px; }
+  .quick-item span { font-size: 13.5px; color: var(--dim); }
+
+  section.block { padding: 112px 0 0; position: relative; }
+  .sec-head { display: flex; flex-direction: column; gap: 12px; margin-bottom: 36px; }
+  .sec-head small { font-size: 13px; font-weight: 700; letter-spacing: .14em; color: var(--coral); text-transform: uppercase; }
+  .sec-head.t small { color: var(--teal); }
+  .sec-head h2 { margin: 0; font-size: 36px; font-weight: 700; line-height: 1.3; }
+
+  /* about */
+  .about-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 56px; align-items: start; }
+  .about-grid p { margin: 0 0 16px; font-size: 16.5px; line-height: 1.9; color: var(--muted); }
+  .facts { background: var(--card); border: 1px solid var(--line); border-radius: 20px; padding: 8px 28px; }
+  .fact { display: grid; grid-template-columns: 96px 1fr; padding: 20px 0; border-bottom: 1px solid var(--line); gap: 16px; }
+  .fact:last-child { border-bottom: 0; }
+  .fact dt { font-weight: 700; color: var(--teal); font-size: 14px; }
+  .fact dd { margin: 0; line-height: 1.7; }
+  dl { margin: 0; }
+
+  /* news */
+  .news-wrap { margin-top: 112px; padding: 96px 0; background: rgba(245,242,250,.02);
+    border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); position: relative; }
+  .tabs { display: flex; gap: 6px; border-bottom: 1px solid var(--line); margin-bottom: 8px; }
+  .tab { background: none; border: 0; padding: 14px 22px; font: inherit; font-size: 16px; font-weight: 700; color: var(--dim);
+    cursor: pointer; border-bottom: 3px solid transparent; margin-bottom: -1px; transition: color .3s ease, border-color .3s ease; }
+  .tab:hover { color: var(--ink); }
+  .tab[aria-selected="true"] { color: var(--ink); border-color: var(--coral); }
+  .panel { display: none; }
+  .panel.on { display: block; animation: fade .5s cubic-bezier(.22,1,.36,1); }
+  @keyframes fade { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+  .row { display: flex; justify-content: space-between; gap: 16px; padding: 20px 6px; border-bottom: 1px solid var(--line);
+    transition: background .3s ease, padding-left .3s cubic-bezier(.22,1,.36,1); }
+  .row:hover { background: rgba(245,242,250,.04); padding-left: 14px; }
+  .row b { font-weight: 500; }
+  .row time { color: var(--dim); font-size: 14px; white-space: nowrap; }
+
+  /* location */
+  .loc { display: grid; grid-template-columns: 1fr 1fr; background: var(--card); border: 1px solid var(--line);
+    border-radius: 20px; overflow: hidden; }
+  .loc-art { background: linear-gradient(155deg, rgba(255,107,74,.16), rgba(45,212,191,.12)); min-height: 280px; position: relative; }
+  .pin { position: absolute; left: 50%; top: 50%; width: 22px; height: 22px; margin: -11px 0 0 -11px; border-radius: 50%;
+    background: var(--coral); box-shadow: 0 0 0 10px rgba(255,107,74,.2), 0 0 0 26px rgba(255,107,74,.09); }
+  .loc-info { padding: 40px; display: flex; flex-direction: column; justify-content: center; gap: 12px; }
+  .loc-info b { font-size: 24px; }
+  .loc-info p { margin: 0; color: var(--muted); line-height: 1.8; }
+
+  footer.site { margin-top: 112px; padding: 36px 0; border-top: 1px solid var(--line); color: var(--dim); font-size: 13.5px; position: relative; }
+  footer.site .container { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; align-items: flex-end; }
+  footer.site b { color: var(--ink); font-size: 16px; display: block; margin-bottom: 8px; }
+  footer.site a { transition: color .3s ease; }
+  footer.site a:hover { color: var(--ink); }
+
+  .js .reveal:not(.in) { opacity: 0; transform: translateY(28px); }
+  .reveal.in { animation: rise .9s cubic-bezier(.22,1,.36,1) backwards; animation-delay: var(--d, 0s); }
+  @keyframes rise { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: none; } }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .js .reveal:not(.in) { opacity: 1; transform: none; }
+    .reveal.in, .panel.on { animation: none; }
+  }
+
+  @media (max-width: 900px) {
+    .container { padding: 0 20px; }
+    .menu-btn { display: block; }
+    nav.main { position: absolute; left: 0; right: 0; top: 76px; background: var(--bg); flex-direction: column; gap: 0;
+      border-bottom: 1px solid var(--line); padding: 4px 20px 12px; opacity: 0; transform: translateY(-8px); pointer-events: none;
+      transition: opacity .25s ease, transform .25s ease; }
+    nav.main.open { opacity: 1; transform: none; pointer-events: auto; }
+    nav.main a { padding: 14px 0; border-bottom: 1px solid var(--line); }
+    nav.main a::after { display: none; }
+    .hero h1 { font-size: 42px; }
+    .hero .container { padding-top: 72px; padding-bottom: 80px; }
+    .quick-grid { grid-template-columns: 1fr 1fr; }
+    .about-grid, .loc { grid-template-columns: 1fr; }
+    .sec-head h2 { font-size: 27px; }
+    .loc-info { padding: 28px 22px; }
+    section.block { padding-top: 80px; }
+    .news-wrap { margin-top: 80px; padding: 64px 0; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+<div class="glow-a"></div>
+<div class="glow-b"></div>
+
+<div class="util">
+  <div class="container">
+    <span>리드미컬 플레이어스 산하 대학교</span>
+    <a href="/">리드미컬 플레이어스 바로가기</a>
+  </div>
+</div>
+
+<header class="site">
+  <div class="container">
+    <a href="#top" class="brand">
+      <img src="/assets/logo.png" alt="유월대학교 엠블럼">
+      <span><b class="serif">유월대학교</b><small>Yuwol University</small></span>
+    </a>
+    <button class="menu-btn" id="menuBtn" aria-label="메뉴 열기" aria-expanded="false" aria-controls="mainNav"><span></span><span></span><span></span></button>
+    <nav class="main" id="mainNav">
+      <a href="#about">대학소개</a>
+      <a href="#world">세계관</a>
+      <a href="#news">공지·소식</a>
+      <a href="#location">오시는 길</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="container">
+      <div class="pill reveal"><i></i>리드미컬 플레이어스 산하 대학교</div>
+      <h1 class="serif reveal" style="--d:.1s">유월에서 시작되는<br><em>배움</em>의 <span>리듬</span></h1>
+      <p class="reveal" style="--d:.2s">유월대학교는 리드미컬 플레이어스의 산하 대학교입니다.<br>기본 세계관 '루나틱'의 중심지 '유월'을 토대로 만들어졌습니다.</p>
+      <div class="actions reveal" style="--d:.3s">
+        <a href="#about" class="btn btn-p">대학 소개 보기</a>
+        <a href="#location" class="btn btn-g">오시는 길</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="quick">
+    <div class="container reveal">
+      <div class="quick-grid">
+        <a href="#about" class="quick-item"><small>ABOUT</small><b>대학소개</b><span>유월대학교를 소개합니다</span></a>
+        <a href="#world" class="quick-item"><small>WORLD</small><b>세계관 '루나틱'</b><span>중심지 '유월'의 이야기</span></a>
+        <a href="#news" class="quick-item"><small>NEWS</small><b>공지·소식</b><span>새로운 소식을 확인하세요</span></a>
+        <a href="#location" class="quick-item"><small>LOCATION</small><b>오시는 길</b><span>유월대 입구 앞</span></a>
+      </div>
+    </div>
+  </div>
+
+  <section class="block" id="about">
+    <div class="container">
+      <div class="sec-head reveal"><small>About</small><h2 class="serif">유월대학교를 소개합니다</h2></div>
+      <div class="about-grid">
+        <div class="reveal">
+          <p>유월대학교(Yuwol University)는 리드미컬 플레이어스의 산하 대학교입니다.</p>
+          <p>기본 세계관인 '루나틱'의 중심지 '유월'을 토대로 만들어졌으며, '유월대 입구' 앞에 위치해 있습니다.</p>
+        </div>
+        <dl class="facts reveal" style="--d:.1s">
+          <div class="fact"><dt>학교명</dt><dd>유월대학교 (Yuwol University)</dd></div>
+          <div class="fact"><dt>소속</dt><dd>리드미컬 플레이어스 산하</dd></div>
+          <div class="fact"><dt>세계관</dt><dd>루나틱 — 중심지 '유월'</dd></div>
+          <div class="fact"><dt>위치</dt><dd>유월대 입구 앞</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="world">
+    <div class="container">
+      <div class="sec-head t reveal"><small>World</small><h2 class="serif">세계관 '루나틱'의 중심지, '유월'</h2></div>
+      <p class="reveal" style="margin:0; max-width:760px; font-size:16.5px; line-height:1.9; color:var(--muted)">
+        유월대학교는 기본 세계관 '루나틱'의 중심지인 '유월'을 토대로 만들어졌습니다.
+      </p>
+    </div>
+  </section>
+
+  <section class="news-wrap" id="news">
+    <div class="container">
+      <div class="sec-head reveal"><small>News</small><h2 class="serif">공지·소식</h2></div>
+      <div class="tabs reveal" role="tablist">
+        <button class="tab" role="tab" aria-selected="true" data-p="p1">공지사항</button>
+        <button class="tab" role="tab" aria-selected="false" data-p="p2">학교 소식</button>
+      </div>
+      <div class="panel on" id="p1">
+        <a class="row"><b>유월대학교 홈페이지가 개설되었습니다.</b><time>2026.10.12</time></a>
+        <a class="row"><b>유월대학교는 리드미컬 플레이어스의 산하 대학교입니다.</b><time>2026.10.12</time></a>
+      </div>
+      <div class="panel" id="p2">
+        <a class="row"><b>유월대학교는 '유월대 입구' 앞에 위치해 있습니다.</b><time>2026.10.12</time></a>
+        <a class="row"><b>기본 세계관 '루나틱'의 중심지 '유월'을 토대로 만들어졌습니다.</b><time>2026.10.12</time></a>
+      </div>
+    </div>
+  </section>
+
+  <section id="location" style="padding-top:0">
+    <div class="container">
+      <div class="sec-head t reveal"><small>Location</small><h2 class="serif">오시는 길</h2></div>
+      <div class="loc reveal">
+        <div class="loc-art"><span class="pin"></span></div>
+        <div class="loc-info">
+          <b class="serif">유월대 입구 앞</b>
+          <p>유월대학교는 '유월대 입구' 바로 앞에 위치해 있습니다.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site">
+  <div class="container">
+    <div>
+      <b class="serif">유월대학교 · Yuwol University</b>
+      리드미컬 플레이어스 산하 대학교<br>
+      위치: 유월대 입구 앞
+    </div>
+    <div style="align-self:flex-end">
+      <a href="/">Rhythmical Players</a> · © 2026 Yuwol University
+    </div>
+  </div>
+</footer>
+
+</div>
+<script>
+  (function () {
+    var btn = document.getElementById('menuBtn'), nav = document.getElementById('mainNav');
+    btn.addEventListener('click', function () {
+      var o = nav.classList.toggle('open'); btn.setAttribute('aria-expanded', o ? 'true' : 'false');
+    });
+    nav.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', function () {
+      nav.classList.remove('open'); btn.setAttribute('aria-expanded', 'false'); }); });
+
+    document.querySelectorAll('.tab').forEach(function (t) {
+      t.addEventListener('click', function () {
+        document.querySelectorAll('.tab').forEach(function (x) { x.setAttribute('aria-selected', x === t ? 'true' : 'false'); });
+        document.querySelectorAll('.panel').forEach(function (p) { p.classList.toggle('on', p.id === t.dataset.p); });
+      });
+    });
+
+    var els = document.querySelectorAll('.reveal');
+    if (!('IntersectionObserver' in window)) { els.forEach(function (e) { e.classList.add('in'); }); return; }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
+    }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
+    els.forEach(function (e) { io.observe(e); });
+  })();
+</script>
+</body>
+</html>
